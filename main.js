@@ -1,13 +1,15 @@
-function tocaSom (idElementoAudio){
+function tocaSom (seletorAudio){
 
-        document.querySelector(idElementoAudio).play();
-        
-    }   
-    
-   
+        const elemento = document.querySelector(seletorAudio);
+
+        if(elemento && elemento.localName ==='audio'){
+            elemento.play();
+        }
+        else{
+            console.log('Eleme nto não encontrado ou Seletor invalido');
+        }
+    }      
     const listaDeTeclas = document.querySelectorAll('.tecla');
-
-    
 
 for (let contador = 0; contador < listaDeTeclas.length; contador++) {
 
@@ -20,14 +22,23 @@ for (let contador = 0; contador < listaDeTeclas.length; contador++) {
 
     tecla.onkeydown = function (evento) {
 
-        console.log(evento.code ==='Space')
+        //console.log(evento.code ==='Space');
+        //console.log(evento.code==='Enter');
+       //console.log(evento);
 
-        if (evento.code == 'Space') {
+      //#region EXPLICAÇÃO "==" E "===" 
+            // a diferença entre "==" e "===" é os 3 iguais irá comparar se o tipo de variável também é o mesmo, diferente do "==" ex.
+            //1=='1' True  (AQUI COMPARA NUMEROS)
+            //1==='1' False (AQUI COMPARA ATÉ O TIPO DE DADO)
+      //#endregion
+        
+      if (evento.code == 'Space'|| evento.code==='Enter'|| evento.code==='NumpadEnter') {
             tecla.classList.add('ativa');
         }
         tecla.onkeyup = function () {
             tecla.classList.remove('ativa');
         }
+        
 
 
     }
