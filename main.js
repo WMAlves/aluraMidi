@@ -18,7 +18,8 @@ for (let contador = 0; contador < listaDeTeclas.length; contador++) {
     const idAudio = `#som_${instrumento}`;   //template string         
     tecla.onclick = function () {
         tocaSom(idAudio);
-    };
+        console.log(tocaSom);
+    }; 
 
     tecla.onkeydown = function (evento) {
 
